@@ -24,7 +24,6 @@ function calcularPrecioDescuento() {
   }
 
   for (const cup in cuponario) {
-    console.log(typeof(cup), cup, typeof(cupon), cupon);
     if (cup === cupon) {
       result.innerText = 'Descuento aplicado, el precio es $' + total;
       return
@@ -34,11 +33,9 @@ function calcularPrecioDescuento() {
     
   }
   
-  if (discount >= 100 || discount < 0) {
+  /* if (discount >= 100 || discount < 0) {
     result.innerText = 'El descuento debe estar en el rango %';
     return
-  }
+  } */
   
-  /* result.innerText = 'El nuevo precio con descuento es: $' + total; */
-
 }
