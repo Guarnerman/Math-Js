@@ -3,14 +3,17 @@ const inputCupon = document.querySelector("#cupon");
 const btn = document.querySelector("#calcular");
 const result = document.querySelector("#result");
 
-const cuponario = {
-  SUMMERTIME: 35,
-  BLACKFR1DAY: 40,
-  BUENFIN: 30,
-  NewYear: 15,
-};
-
 btn.addEventListener("click", calcularPrecioDescuento);
+
+const cuponLista = [];
+cuponLista.push({
+  nombre: "D1adelPadre",
+  descuento: 30,
+});
+cuponLista.push({
+  nombre: "NewYear",
+  descuento: 15,
+});
 
 function calcularPrecioDescuento() {
   const price = Number(inputPrice.value);
@@ -21,12 +24,15 @@ function calcularPrecioDescuento() {
     result.innerText = "Dejaste una casilla en blanco";
   }
 
-  if (cuponario[cupon]) {
-    discount = cuponario[cupon];
+  const cuponValido = cuponLista.find((cup) => {
+    return cup.nombre == cupon; // .find() retorna el primer objeto en forma {}
+  });
+
+  if (cuponValido) {
+    console.log(cuponValido);
+    discount = cuponValido.descuento;
     const total = price * (1 - discount / 100);
-    console.log(cuponario[cupon]);
     result.innerText = "Descuento aplicado, el precio es $" + total;
-    return;
   } else {
     result.innerText = "Cupón no válido";
   }
