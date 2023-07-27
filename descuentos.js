@@ -1,29 +1,28 @@
-const inputPrice = document.querySelector('#price');
-const inputCupon = document.querySelector('#cupon');
-const btn = document.querySelector('#calcular');
-const result = document.querySelector('#result');
+const inputPrice = document.querySelector("#price");
+const inputCupon = document.querySelector("#cupon");
+const btn = document.querySelector("#calcular");
+const result = document.querySelector("#result");
 
 const cuponario = {
-  'SUMMERTIME': 35,
-  'BLACKFR1DAY': 40,
-  'BUENFIN': 30,
-  'NewYear': 15,
-}
+  SUMMERTIME: 35,
+  BLACKFR1DAY: 40,
+  BUENFIN: 30,
+  NewYear: 15,
+};
 
-btn.addEventListener('click', calcularPrecioDescuento);
+btn.addEventListener("click", calcularPrecioDescuento);
 
 function calcularPrecioDescuento() {
   const price = Number(inputPrice.value);
   const cupon = inputCupon.value;
-  let discount = 50
-  
-  const total = (price * (1 - (discount / 100)));
+  let discount;
 
   if (!price || !discount) {
-    result.innerText = 'Dejaste una casilla en blanco';
+    result.innerText = "Dejaste una casilla en blanco";
   }
 
   for (const cup in cuponario) {
+    console.log(typeof(cup), cup, typeof(cupon), cupon);
     if (cup === cupon) {
       result.innerText = 'Descuento aplicado, el precio es $' + total;
       return
@@ -33,9 +32,11 @@ function calcularPrecioDescuento() {
     
   }
   
-  /* if (discount >= 100 || discount < 0) {
+  if (discount >= 100 || discount < 0) {
     result.innerText = 'El descuento debe estar en el rango %';
     return
-  } */
+  }
   
+  /* result.innerText = 'El nuevo precio con descuento es: $' + total; */
+
 }
