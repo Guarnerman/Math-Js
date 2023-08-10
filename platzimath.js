@@ -5,7 +5,8 @@ function esImpar(lista) {
   return lista.length % 2;
 }
 
-function calcularMediana(lista) {
+function calcularMediana(listaDesordenada) {
+  const lista = ordenarLista(listaDesordenada);
   const listaEsPar = esPar(lista);
 
   if (listaEsPar) {
@@ -33,3 +34,12 @@ function calcularPromedio(lista) {
   return promedio;
 }
  
+function ordenarLista(listaDesordenada) {
+  function ordenarListaSort(valorAcumulado, nuevoValor) {
+    return valorAcumulado - nuevoValor;
+  }
+
+  const lista = listaDesordenada.sort((a,b) => b-a)
+  
+  return lista 
+}
