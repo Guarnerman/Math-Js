@@ -32,3 +32,4 @@ function calcularPromedio(lista) {
   const promedio = sumaLista / lista.length;
   return promedio;
 }
+ 
