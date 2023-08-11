@@ -1,11 +1,13 @@
-function esPar(lista) {
-    return !(lista.length % 2);
-}
-function esImpar(lista) {
-    return lista.length % 2;
-}
+const PlatziMath = {};
 
-function calcularModa(lista) {
+PlatziMath.esPar = function esPar(lista) {
+    return !(lista.length % 2);
+};
+PlatziMath.esImpar = function (lista) {
+    return lista.length % 2;
+};
+
+PlatziMath.calcularModa = function (lista) {
     const listaCount = {};
 
     for (let i = 0; i < lista.length; i++) {
@@ -25,9 +27,9 @@ function calcularModa(lista) {
     //console.log({ listaCount, listaArray, listaOrdenada, listaMaxNumber });
     //console.log("La moda es: " + listaMaxNumber[0]);
     return moda;
-}
+};
 
-function calcularMediana(listaDesordenada) {
+PlatziMath.calcularMediana = function (listaDesordenada) {
     const lista = ordenarLista(listaDesordenada);
     const listaEsPar = esPar(lista);
 
@@ -45,18 +47,18 @@ function calcularMediana(listaDesordenada) {
         console.log(medianaListaImpar);
         return medianaListaImpar;
     }
-}
+};
 
-function calcularPromedio(lista) {
+PlatziMath.calcularPromedio = function (lista) {
     let sumaLista = lista.reduce(
         (valorAcumulado, nuevoValor) => valorAcumulado + nuevoValor
     );
 
     const promedio = sumaLista / lista.length;
     return promedio;
-}
+};
 
-function ordenarLista(listaDesordenada) {
+PlatziMath.ordenarLista = function (listaDesordenada) {
     function ordenarListaSort(valorAcumulado, nuevoValor) {
         return valorAcumulado - nuevoValor;
     }
@@ -64,9 +66,9 @@ function ordenarLista(listaDesordenada) {
     const lista = listaDesordenada.sort(ordenarListaSort);
 
     return lista;
-}
+};
 
-function ordenarListaBidimensional(listaDesordenada, i) {
+PlatziMath.ordenarListaBidimensional = function (listaDesordenada, i) {
     function ordenarListaSort(valorAcumulado, nuevoValor) {
         return valorAcumulado[i] - nuevoValor[i];
     }
@@ -74,4 +76,4 @@ function ordenarListaBidimensional(listaDesordenada, i) {
     const lista = listaDesordenada.sort(ordenarListaSort);
 
     return lista;
-}
+};
